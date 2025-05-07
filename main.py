@@ -17,12 +17,14 @@ def runasadmin():
     )
     if result <= 32:
         print("You need admin privileges to run this script.")
-        runasadmin()
+        getout()
 
-def getout()
+
+def getout():
     if not check_admin():
         print("You need admin privileges to run this script.")
         runasadmin()
+        sys.exit(1)
     else:
         print("Running with admin privileges.")
 
