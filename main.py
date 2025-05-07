@@ -30,6 +30,7 @@ def banner():
 
 
 def menu():
+    print(Fore.CYAN + Style.BRIGHT + "[2] " + Fore.GREEN + "Proxy Checker")
     print(Fore.CYAN + Style.BRIGHT + "[1] " + Fore.GREEN + "SMS SPAM")
     print(Fore.CYAN + Style.BRIGHT + "[0] " + Fore.RED + "Exit")
 
@@ -51,6 +52,23 @@ def download_and_run_sms_script():
     except Exception as e:
         print(Fore.RED + f"Error downloading or running script: {e}")
 
+def download_and_run_proxycheck_script():
+    A = "scripts"
+    print(Fore.YELLOW + "Downloading ProxyChecker script from GitHub...")
+    try:
+        if not os.path.exists(A):
+            os.makedirs(A)
+        url = "https://raw.githubusercontent.com/toitenlavortex/HDT-TOOL/refs/heads/main/script/54210108624275221.py"
+        response = requests.get(url)
+        hash_object = hashlib.sha256(response.text.encode())
+        file_hash = hash_object.hexdigest()
+        filename = f"scripts/{file_hash}.py"
+        with open(filename, "w") as f:
+            f.write(response.text)
+        subprocess.run(["python", filename])
+    except Exception as e:
+        print(Fore.RED + f"Error downloading or running script: {e}")
+
 
 def main():
     clear()
@@ -59,6 +77,8 @@ def main():
     choice = input(Fore.LIGHTBLUE_EX + "\n➤ Enter your choice: ")
     if choice == "1":
         download_and_run_sms_script()
+    if choice == "2":
+        download_and_run_proxycheck_script()
     elif choice == "0":
         print(Fore.GREEN + "Goodbye! Thanks for using HDT TOOL.")
         time.sleep(1)
