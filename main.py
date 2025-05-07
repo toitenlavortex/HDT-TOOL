@@ -1,10 +1,31 @@
-import ctypes, sys
+import sys
+import ctypes
+import os
 
-# simple get admin xd :)
+def check_admin():
+    try:
+        is_admin = ctypes.windll.shell32.IsUserAnAdmin() != 0
+    except Exception as e:
+        print(f"Error checking admin status: {e}")
+        is_admin = False
+    return is_admin
 
-if ctypes.windll.shell32.IsUserAnAdmin() != 1:
-    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
-    exit(0)
+def runasadmin():
+    executable = sys.executable  # Lấy đường dẫn của Python hiện tại
+    result = ctypes.windll.shell32.ShellExecuteW(
+        None, "runas", executable, " ".join(sys.argv), None, 1
+    )
+    if result <= 32:
+        print("You need admin privileges to run this script.")
+        runasadmin()
+
+def getout()
+    if not check_admin():
+        print("You need admin privileges to run this script.")
+        runasadmin()
+    else:
+        print("Running with admin privileges.")
+
 
 import ctypes, sys, os, requests, time, hashlib, subprocess
 from colorama import init, Fore, Style
@@ -71,6 +92,7 @@ def download_and_run_proxycheck_script():
 
 
 def main():
+    getout()
     clear()
     banner()
     menu()
