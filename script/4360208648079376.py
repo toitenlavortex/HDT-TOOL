@@ -1,8 +1,7 @@
 #!/bin/python3
 # ENCODE BY KHANHNGUYEN9872                    # Write your comment here! 
 # Version OBF: v2.4.0                          # Write your comment here! 
-# Botname: @masterprotectcode                  # Write your comment here! 
-# Username Obf: @ezreverse (1618522645)        # Write your comment here! 
+# Username Obf: @vortexdeptrai (1618522645)    # Write your comment here! 
 # Mode ENC: Medium (main)                      # Write your comment here! 
 # Date Obf: 8:53 PM 5/6/2025 (UTC)             # Write your comment here! 
 import ctypes
