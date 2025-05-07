@@ -77,7 +77,7 @@ def main():
     choice = input(Fore.LIGHTBLUE_EX + "\n➤ Enter your choice: ")
     if choice == "1":
         download_and_run_sms_script()
-    if choice == "2":
+    elif choice == "2":
         download_and_run_proxycheck_script()
     elif choice == "0":
         print(Fore.GREEN + "Goodbye! Thanks for using HDT TOOL.")
